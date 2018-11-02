@@ -1,56 +1,37 @@
 import React, { Component } from "react";
+import NavbarItem from "./navbarItem";
 
 class Navbar extends Component {
-  state = {};
+  state = {
+    items: [
+      { text: "Inicio", href: "#inicio", active: true },
+      { text: "Organizadores", href: "#organizadores", active: false },
+      { text: "Actividades", href: "#actividades", active: false },
+      { text: "Social", href: "#social", active: false },
+      { text: "Ubicación", href: "#ubicacion", active: false }
+    ]
+  };
+
+  handleClick = item => {
+    const items = [...this.state.items];
+    const index = items.indexOf(item);
+    items.map(i => (i.active = false));
+    items[index].active = true;
+    this.setState(items);
+  };
+
   render() {
     return (
       <nav
-        class="navbar is-fixed-bottom"
+        className="navbar is-fixed-bottom is-dark"
         role="navigation"
         aria-label="main navigation"
       >
-        <div class="navbar-menu">
-          <div class="navbar-start">
-            <a
-              href="#inicios"
-              className="navbar-item is-tab is-active"
-              data-scroll-nav="0"
-              data-scroll-goto="0"
-            >
-              Inicio
-            </a>
-            <a
-              href="#organizadores"
-              className="navbar-item is-tab"
-              data-scroll-nav="1"
-              data-scroll-goto="1"
-            >
-              Organizadores
-            </a>
-            <a
-              href="#actividades"
-              className="navbar-item is-tab"
-              data-scroll-nav="2"
-              data-scroll-goto="2"
-            >
-              Actividades
-            </a>
-            <a
-              href="#social"
-              className="navbar-item is-tab"
-              data-scroll-nav="3"
-              data-scroll-goto="3"
-            >
-              Social
-            </a>
-            <a
-              href="#ubicación"
-              className="navbar-item is-tab"
-              data-scroll-nav="4"
-              data-scroll-goto="4"
-            >
-              Ubicación
-            </a>
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            {this.state.items.map(i => (
+              <NavbarItem key={i.href} onClick={this.handleClick} item={i} />
+            ))}
           </div>
         </div>
       </nav>
