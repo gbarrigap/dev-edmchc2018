@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-class HeroVideo extends Component {
-  state = {};
+class Inicio extends Component {
   render() {
     return (
       <section
@@ -37,7 +36,7 @@ class HeroVideo extends Component {
               Conservatorio de Música UACh
             </h1>
             <h1 className="title is-1 has-text-white">
-              Encuentro de Música Chilena Contemporánea 2018
+              Encuentro de Música Chilena Contemporánea 2018x
             </h1>
             <h2 className="subtitle is-3 has-text-white">
               Pensamiento creativo e identidades del sur
@@ -49,4 +48,4 @@ class HeroVideo extends Component {
   }
 }
 
-export default HeroVideo;
+export default Inicio;
