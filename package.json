@@ -2,6 +2,9 @@
   "name": "v5-react",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "8.10.0"
+  },
   "dependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
